@@ -9,17 +9,20 @@ var server = http.createServer(function(req, res){
 	if(url == '/fang'){
 		fs.readFile('./fang.html',function(err, data){
 			res.writeHead(200, {"Content-Type": 'text/html;charset=UTF-8;'})
-			res.end(data);
+			res.end(data,"", () => {
+				console.log("请求已经完成")
+			});
+
 		})
 	}else if(url == '/yuan'){
 		fs.readFile('./yuan.html',function(err, data){
-			res.writeHead(200, {"Content-Type": 'text/html;charset=UTF-8;'})
-			res.end(data);
+			res.writeHead(200, "ok",{"Content-Type": 'text/html;charset=UTF-8;'})
+			res.end(data);// response.end([data][, encoding][, callback])
 		})
 	}else if(url == '/0.png'){
 		fs.readFile('./0.png',function(err, data){
 			res.writeHead(200, {"Content-Type": 'image/png;'})
-			res.end(data);
+			res.end(data);//
 		})
 	}else if(url == '/css.css'){
 		fs.readFile('./css.css',function(err, data){
