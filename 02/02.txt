@@ -1,0 +1,185 @@
+###复习###
+    Node.js开发服务器，数据、路由。 本地关心的效果：交互。
+    Node.js实际上是极客开发的一个小工具，不是银弹。有着别人不具备的特点。
+    单线程、Non-blocking、Event Driven。实际上是一个特点。
+    首先，Node不为每一个客户开户一个线程，所以极端的选择了单线程。单线程，要照顾所有的用户，那么必须有非阻塞I/O，否则一个人就把别人、自己阻塞了。
+    一旦有非阻塞I/O，一个人去I/O去了，就会放弃CUP的使用权，换成另一个人使用CPU（或者执行此人后面的语句）。所以CPU的利用率是100%。第一个I/O结束了，
+    就要用事件来通知我，执行回掉函数。此时必须有事件环，就有一个排队调度机制。Node中有超半数的C++代码，在搭建事件环。
+
+    Node.jsh和别的老牌3P不一样：
+        1） 没有自己的语法，使用V8引擎，所以就是JS。V8引擎解析JS的，效率非常高，并且V8中的很多东西都是异步的。Node就是将V8中的一个功能自己没有重写（别人做了，自己站在巨人得肩膀上），
+            移植到了服务器上。
+        2）  没有web容器，就是安装配置完成之后，没有一个根目录。
+
+###day02###
+    系统中，80端口，就是默认端口。所以当没有端口号的时候，就是80端口。
+
+###模块###
+
+
+    在nodejs中，以模块为单位划分所有的功能，并且提供一个完整的模块加载机制，这时的我们可以将应用程序划分为各个不同的部分。
+
+    狭义的说，每一个javascript都是一个模块：多个javascript文件之间可以互相require，他们共同实现了一个功能，他们整体对外，
+        又称为一个广义上的模块
+
+    nodejs中，一个javascript文件中的定义的变量、函数，都只在这个内部有效。当需要从模块外部引用这个变量、函数的时候，必须使用
+        exprots对象进行暴露。使用者要用reuqire（）命令引用这个js文件。
+
+    nodejs中，js文件和js文件，就是被一个个exports和require构建成网状的。不是靠html文件统一到一起的。
+
+    一个javascript文件，可以向外exports无数个变量和函数。但是require的时候，仅仅需要require这个js文件一次。
+        使用的它保留的变量和函数的时候，用点语法即可，所以，无形之中增加了一个顶层变量。（优点）
+
+    ##可以将一个javascript文件中，描述一个类，用module.exports = 构造函数名;的方式向外暴露一个类
+      也就是说js和js之间有两种合作的模式：
+         1) 某一个js文件中，提空函数，共别人使用。只需要暴露函数就行了 exports.msg = msg;
+         2) 某一个js文件，描述一个类。 moduel.exports = People;
+
+
+    ##如果require命令这么写：
+        var foo = require('foo.js');  没有写./，所以不是相对路径，是一个特殊的路径
+        那么nodejs就将该文件视为node_modules目录下的一个文件
+        他会逐级向上去找node_modules文件夹
+
+        如果没有扩展名，只有一个名称
+            var bar = require('bar'); 表明是去找node_modules下的bar文件下的入口文件index.js
+            如果入口文件不是index.js，则需要一个package.json文件知名bar文件下的入口文件 "main":'app.js'
+            {
+              "name": "bar",
+              "version": "0.0.1",
+              "main": "app.js"  //指明入口文件
+            }
+            每一个模块文件夹下都推荐写一个package.json文件，这个文件的名字不能改。node将自动读取里面的配置
+                package.json必须放到模块文件的根目录下，不能乱放
+
+    我们刚才学习了，模块就是一起功能的封装，所以一些成熟的、经常使用的功能，都有人封装成了模块，并且放到了社区中，
+        供人免费下载。
+        这个伟大的社区叫做npm。也是一个工具的名字 node package manager。是全球最大的开源库生态系统。
+        //www.npmjs.com
+            去社区搜索需求，然后点进去，看api。
+            如果要配置一个模块，那么直接在cmd使用
+
+            npm install 模块名字
+            就可以安装。 模块名字全球唯一。
+            安装的时候，要注意，命令提示符的所在位置。
+
+            1.我们的依赖包，可能在随时更新，我们永远想保持更新，或者某持某一个版本；
+            2.项目越来越大的时候，给别人看的时候，没有必要再次共享我们引用的第三方模块。
+
+            我们可以用package.json来管理依赖。
+            在cmd中，使用npm init可以初始化一个package.json文件，用回答问题的方式生成一个新的package.json文件。
+            使用
+
+            npm install
+            将能安装所有依赖。
+            npm也有文档，这是package.json的介绍：
+            https://docs.npmjs.com/files/package.json
+
+    ###require()别的js文件的时候，将执行那个js文件。
+        注意：require()中的路径，是从当前这个js文件出发，找到别人。而fs是从命令提示符找到别人。
+
+            所以，桌面上有一个a.js， test文件夹中有b.js、c.js、1.txt
+            a要引用b：
+
+            var b = require(“./test/b.js”);
+            b要引用c：
+
+            var b = require(“./c.js”);
+
+            但是，fs等其他的模块用到路径的时候，都是相对于cmd命令光标所在位置。
+            所以，在b.js中想读1.txt文件，推荐用绝对路径：
+
+            fs.readFile(__dirname + "/1.txt",function(err,data){
+            	if(err) { throw err; }
+            	console.log(data.toString());
+            });
+    ### __dirname: 获得当前文件所在目录的完整目录名：  绝对路径都是
+    ### __filename: 在任何模块文件内部，可以使用__filename变量获取当前模块文件的带有完整绝对路径的文件名。
+        例如user/app/index.js
+            __dirname  user/app
+            __filename  user/app/index.js
+
+
+###POST请求###
+            var alldata = "";
+            //下面是post请求接收的一个公式
+            //node为了追求极致，它是一个小段一个小段接收的。
+            //接受了一小段，可能就给别人去服务了。防止一个过大的表单阻塞了整个进程
+            req.addListener("data",function(chunk){// chunk是一个小的数据块
+                alldata += chunk;
+            });
+            //全部传输完毕
+            req.addListener("end",function(){
+                console.log(alldata.toString());
+                res.end("success");
+            });
+
+    原生写POST处理，比较复杂，要写两个监听。文件上传业务比较难写。
+    所以，用第三方模块。formidable。
+
+    只要涉及文件上传，那么form标签要加一个属性：
+        <form action="http://127.0.0.1/dopost" method="post" enctype="multipart/form-data">  entype
+    只要是上传东西 enctype必须有
+
+###EJS模板引擎###
+
+    <a href="<%= url %>"><img src="<%= imageURL %>" alt=""></a>
+    数据绑定，就成为一个完整的html字符串了。
+    前台的模板，我们现在要学习的是后台的模板。
+    后台模板，著名的有两个，第一个叫做ejs； 第二个叫做jade。
+
+    是npm第三方包。
+
+    ###先说EJS  --效率不高，后台是通过字符串处理，在进行数据绑定
+    Embedded JavaScript templates
+    后台模板引擎
+
+        <ul>
+            <% for(var i = 0 ; i < news.length ; i++){ %>
+                <li><%= news[i] %></li>
+            <% } %>
+        </ul>
+
+    var dictionary = {
+              a:6,
+              news : ["1期班太牛逼了","高薪就业","哈哈哈哈哈"]
+    };
+
+
+    js全栈:  前台，后台，数据库都是用js写的
+
+
+    ###jade：玉， 追求引擎的极致，没有标签，是靠字符串缩进，定义模板的
+        doctype html
+        html(lang="en")
+          head
+            title= pageTitle
+            script(type='text/javascript').
+              if (foo) bar(1 + 5)
+          body
+            h1 Jade - node template engine
+            #container.col
+              if youAreUsingJade
+                p You are amazing
+              else
+                p Get on it!
+              p.
+                Jade is a terse and simple templating language with a
+                strong focus on performance and powerful features.
+        转变为：
+        <!DOCTYPE html>
+        <html lang="en">
+          <head>
+            <title>Jade</title>
+            <script type="text/javascript">
+              if (foo) bar(1 + 5)
+            </script>
+          </head>
+          <body>
+            <h1>Jade - node template engine</h1>
+            <div id="container" class="col">
+              <p>You are amazing</p>
+              <p>Jade is a terse and simple templating language with a strong focus on performance and powerful features.</p>
+            </div>
+          </body>
+        </html>
