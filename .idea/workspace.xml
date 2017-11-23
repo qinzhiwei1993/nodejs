@@ -2,77 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7ba2b329-2cec-44ff-b408-7d664e2d3f68" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/uploads/0171122231555601.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/uploads/20171122231774026.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/uploads/2017112223263864206.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/static/images/publish.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/uploads/upload_065178ac38123a472e5e6c1074dea718.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/silly-datetime/.babelrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/silly-datetime/.jshintrc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/formidable/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/silly-datetime/.npmignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/formidable/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/silly-datetime/.travis.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/01.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/02.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/03_static.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/04.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/05.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/06.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/07.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/08.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/static/1.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/10.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/11_post.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/12_formidable.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/13_formidable_changefilename.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/14_ejs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/15_ejs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/static/404.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/ejs/Jakefile" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/ejs/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/formidable/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/silly-datetime/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/ejs/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/silly-datetime/README.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/formidable/Readme.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/static/aa.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/bar/app.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/silly-datetime/bower.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/ejs/ejs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/ejs/lib/ejs.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/ejs/ejs.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/formidable/lib/file.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/foo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/test/foo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/formidable/lib/incoming_form.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/views/index.ejs" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/static/index.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/formidable/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/formidable/lib/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/silly-datetime/dest/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/silly-datetime/src/index.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/silly-datetime/dest/index.umd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/formidable/lib/json_parser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/mime.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/formidable/lib/multipart_parser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/formidable/lib/octet_parser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/bar/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/ejs/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/formidable/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/silly-datetime/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/test/people.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/formidable/lib/querystring_parser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/silly-datetime/rollup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/router.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/silly-datetime/test/test.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/node_modules/ejs/lib/utils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/02/项目清单.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/02/02.txt" afterPath="$PROJECT_DIR$/02/02.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/01/13_static.js" afterPath="$PROJECT_DIR$/01/13_static.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/nodejs.iml" afterPath="$PROJECT_DIR$/.idea/nodejs.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="nodejs.iws" />
@@ -97,8 +27,8 @@
       <file leaf-file-name="02.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/02/02.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.53763443">
-              <caret line="168" column="12" selection-start-line="168" selection-start-column="12" selection-end-line="168" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.471831">
+              <caret line="172" column="31" selection-start-line="172" selection-start-column="31" selection-end-line="172" selection-end-column="31" />
               <folding />
             </state>
           </provider>
@@ -199,6 +129,7 @@
         <option value="$PROJECT_DIR$/02/15_ejs.js" />
         <option value="$PROJECT_DIR$/02/views/index.ejs" />
         <option value="$PROJECT_DIR$/02/02.txt" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -278,6 +209,7 @@
     <property name="FullScreen" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="restartRequiresConfirmation" value="true" />
+    <property name="add_unversioned_files" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -359,7 +291,13 @@
       <option name="project" value="LOCAL" />
       <updated>1510844771066</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="nodejs第二天结束">
+      <created>1511449291533</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1511449291533</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TodoView">
@@ -377,14 +315,14 @@
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26678765" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32890365" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32806325" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32943144" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998326" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -411,20 +349,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="更改md为txt" />
-    <option name="LAST_COMMIT_MESSAGE" value="更改md为txt" />
+    <MESSAGE value="nodejs第二天结束" />
+    <option name="LAST_COMMIT_MESSAGE" value="nodejs第二天结束" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/01/09_fs.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5117493">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/01/10_fs.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -618,6 +550,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.10691824">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -625,6 +558,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -646,6 +580,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4067086">
           <caret line="12" column="29" selection-start-line="12" selection-start-column="29" selection-end-line="12" selection-end-column="29" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -694,6 +629,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3362319">
           <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -701,6 +637,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.7897573">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -708,6 +647,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.787062">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -715,6 +657,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.68733156">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -722,6 +665,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.626087">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -729,6 +673,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.64260566">
           <caret line="45" column="25" selection-start-line="45" selection-start-column="25" selection-end-line="45" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -736,6 +681,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2693662">
           <caret line="9" column="42" selection-start-line="9" selection-start-column="42" selection-end-line="9" selection-end-column="42" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -763,10 +709,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14127424">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/02/02.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.53763443">
-          <caret line="168" column="12" selection-start-line="168" selection-start-column="12" selection-end-line="168" selection-end-column="12" />
+        <state vertical-scroll-proportion="0.471831">
+          <caret line="172" column="31" selection-start-line="172" selection-start-column="31" selection-end-line="172" selection-end-column="31" />
           <folding />
         </state>
       </provider>
