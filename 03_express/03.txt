@@ -1,0 +1,79 @@
+###Express框架
+    Express框架是后台的Node框架，所以和jQuery、zepto、yui、bootstarp一样都不是一个东西。
+    Express在后台的受欢迎程度，和jQuery一样，就是企业的事实上的标准。
+
+    ###原生的Node开发，会发现很多的问题。比如
+        1、呈现静态页面很不方便，需要处理每一个http请求，还要考虑304问题。
+        2、路由处理代码不直观清晰，需要写很多的正则表达式和字符串函数。
+        3、不能集中经理写业务，要考虑很多其他的东西。
+
+    Express的哲学就是在你的想法和服务器之间充当薄薄得一层。这并不意味着他不够健壮，或者没有足够的有用特性，而是尽量少干预你，让你充分表达自己的思想，同时提供一些有用的东西。
+
+    整体感知，Express框架。
+        安装Express框架，就是使用npm命令。 npm install express --save
+        --save参数，表示自动修改package.json文件，自动添加依赖项。
+
+        1、Express有着经验的路由能力，正则提取数据能力足够一般工作使用。
+        2、Express中静态文件处理，就是一句话的事情。
+        3、Express和末班引擎的配置，直观清晰。
+
+        //例子
+        var express = require('express');
+        var app = express();
+        app.get("/", function(req, res){
+            res.send('你好');
+        })
+        //中间件
+        app.get('/haha', function(req, res){
+            res.send("这是hah页面， 哈哈哈哈");
+        app.get(/^\/student\/([\d]{10})$/, function(req, res){//圆括号表示匹配的第一个params
+            console.log(req.params);
+            res.send('学生信息，学号：' + req.params[0]);
+        })
+        app.get('/teacher/:gonghao', function(req, res){//  :gonghao 是express自己定义的
+            res.send('老师信息，工号：' + req.params['gonghao']);
+        })
+        app.listen(3000);
+
+    ###静态伺服能力
+        app.use(express.static('./static'));
+
+###路由
+     用get请求一个网址
+        app.get('网址',function(req,res){});
+     用post访问一个网址
+        app.post('网址',function(req,res){});
+     如果想处理一个网址的任何method请求，那么些all
+        app.all('网址',function(req,res){});
+
+     这里的网址不分大小写
+     所有的参数，？后面的都已经被忽略。锚点#也都被忽略了
+     你路由到/a，实际/a?id=2&sex=nan 也能被处理
+
+     ###正则表达式可以被使用。正则表达式中，为止部分用圆括号分组，然后用req.params[0]得到req.params类数组对象
+        app.get(/^\/student\/([\d]{10})$/, function(req, res){//圆括号表示匹配的第一个params
+            console.log(req.params);
+            res.send('学生信息，学号：' + req.params[0]);
+        })
+      ###冒号更推荐的写法。
+        app.get('/student/:id', function(req, res){ // /:username/:oid
+            var id = req.params.id;
+            var reg = /^[\d]{6}$/;//再用正则判断参数
+            if(reg.test(id)){
+                res.send(id);
+            }else{
+                res.send("请检查格式");
+            }
+        })
+
+      ###表单可以提交给自己，节约了一个网址
+        app.get('/', function(req, res){
+            res.render('form');
+        })
+        //post请求
+        app.post('/', function(req, res){
+            //将数据添加进数据库
+            res.send('成功');
+        })
+
+      ###适合进行 RESTful 路由设计

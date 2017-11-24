@@ -2,7 +2,7 @@
   "name": "day02",
   "version": "1.0.0",
   "description": "nodejs the second day",
-  "main": "02.js",
+  "main": "07.js",
   "directories": {
     "test": "test"
   },
