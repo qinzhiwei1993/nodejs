@@ -1,0 +1,17 @@
+.album{
+    width: 400px;
+    height: 400px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin: 20px 10px;
+    float: left;
+    cursor: pointer;
+}
+.album:hover{
+    border-color: #f00;
+}
+.album img{
+    width: 100%;
+    height: 300px;
+}
