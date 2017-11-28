@@ -1,0 +1,48 @@
+var fs = require('fs');
+console.log(global.__dirname);
+exports.getAllAlbums = function(callback){
+    fs.readdir(global.__dirname + '/uploads', function(err, files){
+        var albums = [];
+        (function iterator(i){
+            if(i == files.length){
+                callback(albums);
+                return;
+            }
+            fs.stat(global.__dirname + '/uploads/' + files[i], function(err, stats){
+                if(err){
+                    throw err;
+                }
+                if(stats.isDirectory()){
+                    albums.push(files[i]);
+                }
+                iterator(i+=1);
+            })
+        })(0);
+    })
+}
+
+//读取所有相册下的图片
+exports.getAllImagesByAlbumName = function(albumName, callback){
+    fs.readdir(global.__dirname + '/uploads/' + albumName, function(err, files){
+        var images = [];
+        if(err){//没有找到albumName文件夹
+            callback(err, images);
+            return;
+        }
+        (function iterator(i){
+            if(i == files.length){
+                callback(err, images);
+                return;
+            }
+            fs.stat(global.__dirname + '/uploads/' + albumName + '/' + files[i], function(err, stats){
+                if(err){
+                    callback(err, images);
+                    return;
+                }else if(stats.isFile()){
+                    images.push(files[i]);
+                }
+                iterator(i+=1);
+            })
+        })(0);
+    })
+}
