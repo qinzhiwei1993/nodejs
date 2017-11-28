@@ -11,6 +11,7 @@ app.get('/haha', function(req, res){
 })
 
 app.get(/^\/student\/([\d]{10})$/, function(req, res){//圆括号表示匹配的第一个params
+    console.log(req);
     console.log(req.params);
     res.send('学生信息，学号：' + req.params[0]);
 })

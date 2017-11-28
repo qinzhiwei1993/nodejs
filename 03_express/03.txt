@@ -77,3 +77,90 @@
         })
 
       ###适合进行 RESTful 路由设计
+
+###中间件
+    //如果我们的get、post回掉函数中，没有next参数，那么就匹配到到第一个路由，不会往下匹配了
+    //如果想往下匹配的话，需要执行next()
+    //两个路由一样的，匹配到第一个就不会在执行第二个，所以只会打印出 1
+    app.get('/', function(req, res, next){//这里有个next参数，如果有两个路由一样，执行了next()方法，就会继续执行下面同样的路由
+        console.log("1");
+        a++;
+        res.send(a.toString());
+        next();
+    })
+
+    app.get('/', function(req, res){
+        console.log('2');
+    })
+
+    // 下面两个路由，感觉没有关系：
+    //但是实际上冲突了，因为admin可以看做username，login看做id
+    app.get('/:username/:id', function(req, res){
+        console.log(1);
+        res.send('用户信息：'+req.params.username +'id号：'+ req.params.id);
+    })
+
+    app.get('/admin/login', function(req, res){
+        console.log(2);
+        res.send('管理员登录')
+    })
+
+    //解决方法一： 交换位置。也就是说，在express中所有的路由（中间件）的顺序至关重要，
+        匹配上第一个，就不会往下匹配了。具体的往上写，抽象的往下写
+    app.get('/admin/login', function(req, res){
+            console.log(2);
+            res.send('管理员登录')
+        })
+
+    app.get('/:username/:id', function(req, res){
+        console.log(1);
+        res.send('用户信息：'+req.params.username +'id号：'+ req.params.id);
+    })
+
+    //解决方法二： 连续send两次会报错
+    app.get('/:username/:id', function(req, res，next){
+        var username = req.params.username;
+        //检索数据库，如果username不存在，那么next
+        if(检索数据库){
+            console.log(1);
+            res.send('用户信息：'+req.params.username +'id号：'+ req.params.id);
+        }else{
+            next();
+        }
+    })
+
+    app.get('/admin/login', function(req, res){
+        console.log(2);
+        res.send('管理员登录')
+    })
+
+    //路由get、post这些东西，就是中间件，中间价讲究顺序，匹配上第一个之后就不会往后匹配了。next函数之后才会继续
+        往后 匹配。
+
+###app.use() 也是一个中间件，与get post不同的是，他的网址不是精确匹配的。而是能够有小文件夹扩展的。
+    app.use('/admin', function(req, res, next) {
+      // GET 'http://www.example.com/admin/new'
+      console.log(req.originalUrl); // '/admin/new'
+      console.log(req.baseUrl); // '/admin'
+      console.log(req.path); // '/new'
+    });
+
+    app.use()就给我们增加了一些特定功能的便利场所。
+    实际上app.use()的东西，基本上都从第三方能得到。
+
+
+    ###大多数情况下，渲染内容用res.render()，将根据views中的模板文件进行渲染。
+            如果不想使用views文件夹，想自己设置文件夹的名字，那么app.set('views', './haha');
+       如果想写一个快速测试页面，当然可以用res.send()。这个函数将根据内容，自动设置
+            我们的content-type 和 200状态码。send()只能用一次，和end一样。和end不一样在哪里？能够自动设置MIME类型
+       如果想使用不同的状态码，可以
+            res.status(404).send('Sorry, we cannot find that');
+       如果想使用不同的content-type
+            res.set('content-type', 'text/html');
+
+
+###GET和POST请求
+
+    GET请求的参数在URL中，在原生的NODE中，需要使用url模块识别参数字符串。在express中不需要使用url模块了。可以直接req.query获取？后面的参数
+
+    POST请求在express中不能直接获得，必须使用body-parser模块。使用后将可以用req.body得到参数。但是如果表单中含有文件上传，必须使用formidbale模块。
