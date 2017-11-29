@@ -67,3 +67,43 @@
         --collection  restaurants 往哪个集合中导入
         --drop 把集合清空
         --file ~/downloads/primer-dataset.json  导入的文件
+
+    ###查找数据 用find。如果find中没有参数，那么会列数这个结合的所有文档：
+        db.student.find(); 查找所有文档
+        db.student.find({"score.shuxue": 10}) 精确匹配
+        多条件查询（并）: 用逗号分割开
+            db.student.find({"score.shuxu":10,"age":12});
+        大于： 查找数学成绩大于70的 ，小于是 $lt
+            db.student.find({"score.shuxue": {$gt:70}});
+        并且： 是用,逗号链接调条件
+        或： 数学成绩为70或者90的人
+            db.student.find(
+                {$or:[{"socre.shuxue":70},{"socre.shuxue":90}]}
+            );
+
+        查询完毕之后，打点调用sort，表示升降排序 1表示升序，-1表示降序
+            db.student.find().sort({"socre.shuxue":1,"age":-1});//前面的属性优先，第一个属性相同，比较第二个属性。。
+
+
+    ###删除数据
+        删除集合：
+            db.student.drop()
+        移除文档
+            移除所有数学为70的人
+                db.student.remove({"score.shuxue":70});
+            移出第一个数学为70的人
+                db.student.remove({"score.shuxue":70},{justOne: true});
+    ###修改数据
+        db.student.update(
+           {"name": "小明"},//查找name为小明的项
+           {
+             $set:{"age": 16},//修改的属性  set关键字必须有，否则将改变整个文档为age:16
+             $currentDate: {"lastModified": true}   //最后一次修改时间
+           },
+           {
+              multi: true  //更改多项， 默认情况下，update只能更改一项
+           }
+        );
+
+
+        //完整替换。不写$set关键字
