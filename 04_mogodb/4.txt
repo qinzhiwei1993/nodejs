@@ -83,7 +83,9 @@
 
         查询完毕之后，打点调用sort，表示升降排序 1表示升序，-1表示降序
             db.student.find().sort({"socre.shuxue":1,"age":-1});//前面的属性优先，第一个属性相同，比较第二个属性。。
-
+        查询文档的条数：
+            db.student.find().count()
+            db.student.stats().count  这两个都可以
 
     ###删除数据
         删除集合：
@@ -107,3 +109,6 @@
 
 
         //完整替换。不写$set关键字
+
+
+
