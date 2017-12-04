@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        p, h1{
+            text-align: center;
+        }
+        #liuyanList{
+            width:500px;
+            margin:0 auto;
+        }
+        span{
+            margin-right:50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>我的留言本</h1>
+    <form  action="#" enctype="multipart/form-data" method="post">
+        <p>
+            姓名： <input id="name" type="text" name="name" placeholder="姓名"/>
+        </p>
+        <p>
+            留言： <textarea id="liuyan" name="liuyan" cols="30" rows="10"></textarea>
+        </p>
+        <p>
+            <button id="submit" type="button">提交</button>
+        </p>
+    </form>
+    <ul id="liuyanList">
+        <li>
+            <div>
+                <span>姓名：发生的</span>
+                <span>留言：发蓝思科技付款多少</span>
+            </div>
+        </li>
+    </ul>
+    <script src="/jquery-3.2.1.min.js"></script>
+    <script>
+        $.get("/du",function(result){
+            if(result.status == 200){
+                var list = result.data;
+                var html = "";
+                list.map((value) => {
+                    html += `
+                    <li>
+            <div>
+                <span>姓名：${ value.name }</span>
+                <span>留言：${ value.liuyan }</span>
+            </div>
+        </li>
+                    `;
+                })
+             $("#liuyanList").html(html);
+            }
+        })
+
+
+        $("#submit").click(function(){
+            $.post('/tijiao',{
+                "name": $("#name").val(),
+                "liuyan": $("#liuyan").val()
+            }, function(result){
+                if(result.status = 200){
+                    alert("留言成功");
+                    var html = `
+                        <li>
+            <div>
+                <span>姓名：${ result.data.name }</span>
+                <span>留言：${ result.data.liuyan }</span>
+            </div>
+        </li>
+                    `;
+                    $("#liuyanList").append(html);
+                }else{
+                    alert("留言失败")
+                }
+            })
+        })
+    </script>
+</body>
+</html>
