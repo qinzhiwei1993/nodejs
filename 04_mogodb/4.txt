@@ -86,7 +86,8 @@
         查询文档的条数：
             db.student.find().count()
             db.student.stats().count  这两个都可以
-
+        分页://每页4条，从第零条开始
+            db.student.find().limit(5).skip(0)
     ###删除数据
         删除集合：
             db.student.drop()
