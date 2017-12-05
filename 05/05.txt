@@ -2,7 +2,7 @@
     是一个数据访问接口.DAO 最适用于单系统应用程序或小范围本地分布使用。
 2、HTTP是无状态的协议。简单的说，当你浏览了一个页面，然后转到同一个网站的另一个页面，服务器无法意识到，这是同一个浏览器也访问同一个网站。每一次的访问，都是没有任何关系的。(那么世界就乱套了，当访问一个网站，登录了，过了一会又来进入网站，有需要在此登录。。。)
     但是为了用户体验，我们确实需要让服务器来记忆用户的一些信息。因为cookie应运而生。
-3、ookie是一个简单到爆的想法：当访问一个网页的时候，服务器在下行HTTP报文中，命令浏览器存储一个字符串；浏览器再访问同一个域的时候，将把这个字符串携带到上行HTTP请求中。
+3、Cookie是一个简单到爆的想法：当访问一个网页的时候，服务器在下行HTTP报文中，命令浏览器存储一个字符串；浏览器再访问同一个域的时候，将把这个字符串携带到上行HTTP请求中。
     第一次请求一个服务器，不会携带cookie。必须是服务器得到这次请求，在下行相应报头中，携带cookie信息，此后每一次浏览器往这个服务器发出的请求，都会携带这个cookie。
 
     cookie特点： 不加密的用户可以自己看到。
@@ -14,3 +14,42 @@
     express中的cookie: res负责设置cookie， req负责识别cookie
 
     cookie主要设置选项: domain, path, maxAge, singed
+
+4、Session：会话。
+    session不是天生就有的技术，而是依赖cookie。
+
+    session依赖cookie，当一个浏览器禁用cookie的时候，登录效果消失；或者用户清楚了cookie，登录效果也消失。
+
+    session比cookie不一样在哪里： session下发的是乱码，并且服务器自己缓存一些东西，下次浏览器请求带着乱码上阿里，
+        此时与缓存进行比较，看看是谁。
+        所以，一个乱码，可以对应无限大的数据。
+        任何语言中，session的使用，是“机理透明的”。他帮助你设置cookie，但是足够方便，让你感觉这事和cookie无关。
+
+    Nodejs中的Session：
+        app.use(session({
+            secret: 'keyboard cat',
+            resave: false,
+            saveUninitialized: true
+        }))
+
+        app.get('/', function(req, res){
+            console.log(req.session);
+            if(req.session.login){
+                res.send("欢迎你" +req.session.username);
+            }else{
+                res.send("你没有登录");
+            }
+
+        })
+
+        app.get('/login', function(req, res){
+            req.session.login = true;//设置这个session
+            req.session.username = "考拉";
+            console.log(req.session);
+            res.send("你已经成功登录");
+        })
+
+        //失效时间：
+        var hour = 3600000
+        req.session.cookie.expires = new Date(Date.now() + hour)
+        req.session.cookie.maxAge = hour
