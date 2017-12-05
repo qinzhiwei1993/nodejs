@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var db = require('./models/db.js');
 var bodyParser = require('body-parser');
+var ObjectId = require('mongodb').ObjectID;//将_id字符串转换为一个ObjectId对象。
 
 
 app.use(bodyParser.urlencoded({ extended: false }))

@@ -34,6 +34,10 @@ exports.find = function(collectionName, json, contions, callback){//给参数设
     _connectDB(function(db){
         var cursor = db.collection(collectionName).find(json).skip(skipnumber).limit(limitnumber);//为可用于迭代MongoDB结果的查询创建一个游标
         cursor.toArray(function(err, docs){
+
+            db.collection(collectionName).count(function(err, count){//查询文档的数目
+                console.log(count);
+            })
             //返回所有的documents
             callback(err, docs);
             db.close();
