@@ -31,6 +31,7 @@ exports.insertOne = function(collectionName, json, callback){
 exports.find = function(collectionName, json, contions, callback){//给参数设置默认值
     var skipnumber = (contions.page - 1) * contions.pageamount;
     var limitnumber = contions.pageamount;
+    console.log(json);
     _connectDB(function(db){
         var cursor = db.collection(collectionName).find(json).skip(skipnumber).limit(limitnumber);//为可用于迭代MongoDB结果的查询创建一个游标
         cursor.toArray(function(err, docs){
