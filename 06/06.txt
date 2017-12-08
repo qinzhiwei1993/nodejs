@@ -21,9 +21,25 @@
     MD5常用于作为版本的校验。可以比对两个软件、文件是否完全一致。
 
 
+    //加密流程:
     node中自带了一个模块， crypto模块，负责加密。
-
     首先创建hash，然后update和digest
     var md5 = crypto.createHash('md5');
     var password = md5.update(fields.password).digest('base64');
+
+三、图像处理  GraphicsMagick  http://www.graphicsmagick.org/
+    只要服务器需要处理图片，那么这个服务器就需要安装 GraphicsMagick软件。免费的。
+
+    装完之后，可视化工具没用(这个软件提供了接口，可以用语言进行调用).从桌面上删除，把安装目录设置为全局变量。
+
+    格式转换： gm convert a.png b.jpg  把a.png转为b.jpg
+    API http://www.graphicsmagick.org/mogrify.html
+
+    nodejs要使用graphicsmagick, 需要安装一个叫gm的包。  npm install gm
+
+
+
+    ####node-gm
+        http://blog.csdn.net/dreamer2020/article/details/51647885
+        npm https://www.npmjs.com/package/gm-reloaded   更详细
 
