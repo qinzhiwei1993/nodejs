@@ -28,6 +28,9 @@
     var password = md5.update(fields.password).digest('base64');
 
 三、图像处理  GraphicsMagick  http://www.graphicsmagick.org/
+    windows安装地址 ftp://ftp.graphicsmagick.org/pub/GraphicsMagick/windows/
+    linux安装： 通过brew进行安装   brew install graphicsmagick
+
     只要服务器需要处理图片，那么这个服务器就需要安装 GraphicsMagick软件。免费的。
 
     装完之后，可视化工具没用(这个软件提供了接口，可以用语言进行调用).从桌面上删除，把安装目录设置为全局变量。
@@ -36,9 +39,6 @@
     API http://www.graphicsmagick.org/mogrify.html
 
     nodejs要使用graphicsmagick, 需要安装一个叫gm的包。  npm install gm
-
-
-
     ####node-gm
         http://blog.csdn.net/dreamer2020/article/details/51647885
         npm https://www.npmjs.com/package/gm-reloaded   更详细
