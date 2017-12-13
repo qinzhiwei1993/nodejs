@@ -71,7 +71,7 @@
 -    console.log("数据库成功连接");
 -});
 -
--2.2 定义模型
+-2.2 定义模型When your application starts up, Mongoose automatically calls ensureIndex for each defined index in your schema. While nice for development, it is recommended this behavior be disabled in production since index creation can cause a significant performance impact. Disable the behavior by setting the autoIndex option of your schema to false.
 -创造schema → 定义一些schema的静态方法 → 创造模型
 -创造schema用什么语句？  new mongoose.schema({});
 -创造模型用什么语句？ 	db.model(“Student”,schema名字);
